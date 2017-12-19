@@ -6,8 +6,9 @@ import _ from 'lodash';
 
 var client = new Web3(new Web3.providers.HttpProvider("http://localhost:9545"));
 var contractAbi = [{"constant":true,"inputs":[],"name":"getAllowedNames","outputs":[{"name":"","type":"bytes32[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"allowed","outputs":[{"name":"name","type":"bytes32"},{"name":"account","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_to","type":"address"}],"name":"buySomething","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_name","type":"bytes32"},{"name":"_account","type":"address"}],"name":"addAllowed","outputs":[{"name":"_success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getAllowedAddresses","outputs":[{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}];
-var contractAddress = '0x0d8cc4b8d15d4c3ef1d70af0071376fb26b5669b';
+var contractAddress = '0x345ca3e014aaf5dca488057592ee47305d9b3e10';
 var contract = new client.eth.Contract(contractAbi, contractAddress);
+var myAccount = '0x627306090abab3a6e1400e9345bc60c78a8bef57';
 
 function canIBuy(){
   var address = document.getElementById('address-can-i-buy').value;
@@ -21,14 +22,11 @@ function canIBuy(){
 function addAllowed(){
   var name = client.utils.fromAscii(document.getElementById('name-add-allowed').value);
   var address = document.getElementById('account-add-allowed').value; 
-  console.log(name);
-  console.log(address); 
-  contract.methods.addAllowed(name, address).call().then((promise) =>{      
-    //getAllowed();
+  contract.methods.addAllowed(name, address).send( { gas: 200000, from: myAccount, gasPrice:1}, function(er, promise)  {      
+    console.log(er);
     console.log(promise);
   }); 
 }
-
 
 class App extends Component {
   constructor(props){
@@ -39,15 +37,13 @@ class App extends Component {
     }
   }
   componentWillMount(){
-    contract.methods.getAllowedNames().call().then((promise) =>{      
-      console.log(promise)
+    contract.methods.getAllowedNames().call().then((promise) =>{   
       this.setState({
           names : promise         
       });
     }); 
   
-    contract.methods.getAllowedAddresses().call().then((promise) =>{      
-      console.log(promise)
+    contract.methods.getAllowedAddresses().call().then((promise) =>{       
       this.setState({
           addresses : promise         
       });
