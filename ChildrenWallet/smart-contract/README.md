@@ -1,11 +1,12 @@
-El smart-contract hace lo siguiente:
+This smart contract is for parents.
+They give some money to their children and wish that it can only be spent in some known and allowed places. As an example, parents would like their children to spend the money at school but maybe they would not like their children to spend the money at the candy store. The flow would be like this:
 
-Los padres le dan algo de dinero a sus hijos y desean que solo puedan gastarse en algunos lugares/establecimientos conocidos y permitidos. Como ejemplo, a los padres les gustaría que sus hijos gasten el dinero en la escuela pero no les gustaría que sus hijos gasten el dinero en la tienda de dulces. El flujo sería así: Nick es un niño y tiene una aplicación de billetera en su teléfono móvil.
+Nick is a child and he has a wallet app on his mobile phone.
 
-- Nick va a un lugar para comprar algo y selecciona algunos artículos.
-- Ahora, necesita la dirección (billetera) del lugar y el monto a pagar.
-- Nick abre su aplicación de billetera, ingresa la dirección del lugar y la cantidad.
-Nick esta intentado pagar: si el lugar es un lugar permitido, se emitirá el pago. De lo contrario, la aplicación informará que no está permitido comprar allí.
+- Nick goes to a place to buy something and selects some items.
+- Now, he needs the address (wallet) of the place and the amount to pay.
+- Nick opens his wallet app, enter the address of the place and the amount.
+- He tries to pay: if the place is a permitted place the payment will be issued. If not, the app will inform that it is not allowed to buy there.
 
 # Install app
 
