@@ -9,5 +9,6 @@ Nick is a child and he has a wallet app on his mobile phone.
 - He tries to pay: if the place is a permitted place the payment will be issued. If not, the app will inform that it is not allowed to buy there.
 
 # Install app
-
+```
 npm install -g truffle
+```
