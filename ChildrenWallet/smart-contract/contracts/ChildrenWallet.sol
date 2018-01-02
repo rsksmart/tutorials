@@ -54,4 +54,8 @@ contract ChildrenWallet {
       } 
       return "You can not buy here";    
   }
+
+  function getParentBalance() constant returns (uint) {
+      return parents.balance;
+  }
 }
