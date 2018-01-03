@@ -51,8 +51,24 @@ You should save it.
 3. On another tab, type `cd ..` && `cd frontend-app`.
 4. Open `src/App.js` and replace the contractAddress variable with your contract's address.
 5. Type `REACT_APP_ADDRESS="0xb26c7210147a38827583449333eb2c2875c84124" REACT_APP_PARENT="" npm start` to run parents' wallet on http://localhost:3000.
+
+> Note: on Windows you need to set the enviroment variables before running the `npm start` command. 
+> ```
+> set REACT_APP_ADDRESS=0xb26c7210147a38827583449333eb2c2875c84124
+> set REACT_APP_PARENT=""
+> npm start
+> ```
+ 
+
 6. On parents' wallet, use the "Add allowed" functionality:  write as name "antonio" and "0x0b1559b184848a1d53dee60fcf2c522110e5a081" as its shop address. Press the button. Now, "antonio" is an allowed place for children to buy things.
 7. On another tab, type `REACT_APP_ADDRESS="0x2c857ed8008bfa7ee352dad6167f46ef6888ac06" npm start` to run child's wallet on http://localhost:3001.
+
+> Note: on Windows you need to set the enviroment variables before running the `npm start` command. 
+> ```
+> set REACT_APP_ADDRESS=0x2c857ed8008bfa7ee352dad6167f46ef6888ac06
+> npm start
+> ```
+
 8. On child's wallet DApp, try the 'Can buy?' functionality writing "0x0b1559b184848a1d53dee60fcf2c522110e5a081" in the field. Click "Buy". You should see a legend saying that 'You can buy here' because it's antonio's address. Write 1 in the amount field and click "Pay". Children and shop balances have been updated.
 9. On child's wallet DApp, try the 'Can buy?' functionality writing "0x3e7e856858ef5c777874f2f4055af76f7f6d75b0" (a non allowed address). You should see a legend saying that 'You can not buy here'.
 10. On child's wallet DApp, add "bad" as address and see that "ERROR: Invalid address" text appear. It's validating address' format.
