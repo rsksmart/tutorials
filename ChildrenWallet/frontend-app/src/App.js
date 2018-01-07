@@ -2,26 +2,29 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Web3 from 'web3';
-
+// 8545 is the default rpctest PORT , for default ganache port use 7545
 var client = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+
 var contractAbi = [{ "constant": true, "inputs": [], "name": "getAllowedNames", "outputs": [{ "name": "", "type": "bytes32[]" }], "payable": false, "type": "function" }, { "constant": true, "inputs": [], "name": "getParentBalance", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "uint256" }], "name": "allowed", "outputs": [{ "name": "name", "type": "bytes32" }, { "name": "account", "type": "address" }], "payable": false, "type": "function" }, { "constant": true, "inputs": [{ "name": "_to", "type": "address" }], "name": "buySomething", "outputs": [{ "name": "", "type": "string" }], "payable": false, "type": "function" }, { "constant": false, "inputs": [{ "name": "_name", "type": "bytes32" }, { "name": "_account", "type": "address" }], "name": "addAllowed", "outputs": [{ "name": "_success", "type": "bool" }], "payable": false, "type": "function" }, { "constant": true, "inputs": [], "name": "getAllowedAddresses", "outputs": [{ "name": "", "type": "address[]" }], "payable": false, "type": "function" }, { "inputs": [], "payable": false, "type": "constructor" }];
-var contractAddress = '0x2280103a3527e0ca09d10c2cf65b7f711c5989fd';
+
+// Hardcoded Contract Address
+var contractAddress = '0x9068af4de1582b6dceab8ff77f54aadb9788332d';
 var contract = new client.eth.Contract(contractAbi, contractAddress);
 var isParent = false;
 var isParentText = 'Children';
 
 // https://github.com/facebookincubator/create-react-app/issues/2867
-if (process.env.hasOwnProperty('REACT_APP_PARENT')) {
+if (process.env.hasOwnProperty('REACT_APP_ISPARENT')) {
   isParent = true;
   isParentText = 'Parent';
 }
 
-if (!process.env.hasOwnProperty('REACT_APP_ADDRESS')) {
-  console.log('ERROR: REACT_APP_ADDRESS parameters is required! See README.md for more information.');
+if (!process.env.hasOwnProperty('REACT_APP_MYADDRESS')) {
+  console.log('ERROR: REACT_APP_MYADDRESS parameters is required! See README.md for more information.');
   // return false;
 }
 
-var myAccount = process.env.REACT_APP_ADDRESS;
+var myAccount = process.env.REACT_APP_MYADDRESS;
 
 console.log('process.argv', isParent);
 
