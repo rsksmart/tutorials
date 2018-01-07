@@ -9,9 +9,9 @@ npm install -g testrpc
 
 ```
 // start app for a parent wallet setting an address
-REACT_APP_ADDRESS="0xa88617319578e45b785c190c421544727ee72467" REACT_APP_PARENT="" npm start
+REACT_APP_MYADDRESS="0xa88617319578e45b785c190c421544727ee72467" REACT_APP_ISPARENT="1" npm start
 // start app for a children wallet (default) setting an address
-REACT_APP_ADDRESS="0xa88617319578e45b785c190c421544727ee72467" npm start
+REACT_APP_MYADDRESS="0xa88617319578e45b785c190c421544727ee72467" npm start
 ```
 
 ## Use example (using testrpc)
@@ -50,22 +50,22 @@ You should save it.
 
 3. On another tab, type `cd ..` && `cd frontend-app`.
 4. Open `src/App.js` and replace the contractAddress variable with your contract's address.
-5. Type `REACT_APP_ADDRESS="0xb26c7210147a38827583449333eb2c2875c84124" REACT_APP_PARENT="" npm start` to run parents' wallet on http://localhost:3000.
+5. Type `REACT_APP_MYADDRESS="0xb26c7210147a38827583449333eb2c2875c84124" REACT_APP_ISPARENT="1" npm start` to run parents' wallet on http://localhost:3000.
 
 > Note: on Windows you need to set the enviroment variables before running the `npm start` command. 
 > ```
-> set REACT_APP_ADDRESS=0xb26c7210147a38827583449333eb2c2875c84124
-> set REACT_APP_PARENT=""
+> set REACT_APP_MYADDRESS=0xb26c7210147a38827583449333eb2c2875c84124
+> set REACT_APP_ISPARENT="1"
 > npm start
 > ```
  
 
 6. On parents' wallet, use the "Add allowed" functionality:  write as name "antonio" and "0x0b1559b184848a1d53dee60fcf2c522110e5a081" as its shop address. Press the button. Now, "antonio" is an allowed place for children to buy things.
-7. On another tab, type `REACT_APP_ADDRESS="0x2c857ed8008bfa7ee352dad6167f46ef6888ac06" npm start` to run child's wallet on http://localhost:3001.
+7. On another tab, type `REACT_APP_MYADDRESS="0x2c857ed8008bfa7ee352dad6167f46ef6888ac06" npm start` to run child's wallet on http://localhost:3001.
 
 > Note: on Windows you need to set the enviroment variables before running the `npm start` command. 
 > ```
-> set REACT_APP_ADDRESS=0x2c857ed8008bfa7ee352dad6167f46ef6888ac06
+> set REACT_APP_MYADDRESS=0x2c857ed8008bfa7ee352dad6167f46ef6888ac06
 > npm start
 > ```
 
