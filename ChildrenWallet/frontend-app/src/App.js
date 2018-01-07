@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Web3 from 'web3';
 
-var client = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+var client = new Web3(new Web3.providers.HttpProvider("http://localhost:9545"));
 var contractAbi = [{ "constant": true, "inputs": [], "name": "getAllowedNames", "outputs": [{ "name": "", "type": "bytes32[]" }], "payable": false, "type": "function" }, { "constant": true, "inputs": [], "name": "getParentBalance", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "uint256" }], "name": "allowed", "outputs": [{ "name": "name", "type": "bytes32" }, { "name": "account", "type": "address" }], "payable": false, "type": "function" }, { "constant": true, "inputs": [{ "name": "_to", "type": "address" }], "name": "buySomething", "outputs": [{ "name": "", "type": "string" }], "payable": false, "type": "function" }, { "constant": false, "inputs": [{ "name": "_name", "type": "bytes32" }, { "name": "_account", "type": "address" }], "name": "addAllowed", "outputs": [{ "name": "_success", "type": "bool" }], "payable": false, "type": "function" }, { "constant": true, "inputs": [], "name": "getAllowedAddresses", "outputs": [{ "name": "", "type": "address[]" }], "payable": false, "type": "function" }, { "inputs": [], "payable": false, "type": "constructor" }];
 var contractAddress = '0x2280103a3527e0ca09d10c2cf65b7f711c5989fd';
 var contract = new client.eth.Contract(contractAbi, contractAddress);

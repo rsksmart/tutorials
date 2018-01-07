@@ -2,7 +2,7 @@
 
 ```
 npm install
-npm install -g testrpc
+npm install -g truffle
 ```
 
 ## Start the app
@@ -16,7 +16,7 @@ REACT_APP_ADDRESS="0xa88617319578e45b785c190c421544727ee72467" npm start
 
 ## Use example (using testrpc)
 
-1. On a terminal, type `testrpc` to start the on memory blockchain. Take 3 of the addresses that testrpc generates. For example:
+1. On a terminal, type `truffle develop` to start the on memory blockchain. Take 3 of the addresses that testrpc generates. For example:
 ```
 
 0xb26c7210147a38827583449333eb2c2875c84124 - parents' address
