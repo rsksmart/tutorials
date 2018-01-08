@@ -14,7 +14,7 @@ REACT_APP_ADDRESS="0xa88617319578e45b785c190c421544727ee72467" REACT_APP_PARENT=
 REACT_APP_ADDRESS="0xa88617319578e45b785c190c421544727ee72467" npm start
 ```
 
-## Use example (using testrpc)
+## Use example 
 
 1. On a terminal, type `truffle develop` to start the on memory blockchain. Take 3 of the addresses that testrpc generates. For example:
 ```
